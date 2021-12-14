@@ -39,4 +39,14 @@
         <url-pattern>/myServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>gs</servlet-name>
+        <servlet-class>com.rongke.serv.GenServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>gs</servlet-name>
+        <url-pattern>/GenServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

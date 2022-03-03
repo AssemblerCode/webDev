@@ -19,31 +19,48 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0"
-         metadata-complete="true">
+         version="4.0">
 
-    <description>
-        Servlet and JSP Examples.
-    </description>
-    <display-name>Servlet and JSP Examples</display-name>
+    <filter>
+        <filter-name>filterA</filter-name>
+        <filter-class>com.rongke.filter.MyFilterA</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterA</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-    <request-character-encoding>UTF-8</request-character-encoding>
+    <filter>
+        <filter-name>filterB</filter-name>
+        <filter-class>com.rongke.filter.MyFilterB</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterB</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>ms</servlet-name>
         <servlet-class>com.rongke.serv.MyServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ms</servlet-name>
         <url-pattern>/myServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>myCookie</servlet-name>
+        <servlet-class>com.rongke.cookie.MyCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myCookie</servlet-name>
+        <url-pattern>/getCookie</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>gs</servlet-name>
         <servlet-class>com.rongke.serv.GenServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>gs</servlet-name>
         <url-pattern>/GenServlet</url-pattern>

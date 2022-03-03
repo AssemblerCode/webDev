@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.HttpCookie;
 
-@javax.servlet.annotation.WebServlet(value = {"/getCookie", "/**"})
 public class MyCookie extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

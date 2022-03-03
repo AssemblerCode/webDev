@@ -26,10 +26,6 @@
         <param-value>25</param-value>
     </context-param>
 
-    <context-param>
-        <param-name></param-name>
-        <param-value></param-value>
-    </context-param>
 
     <filter>
         <filter-name>filterA</filter-name>
@@ -65,7 +61,8 @@
     <servlet-mapping>
         <servlet-name>myCookie</servlet-name>
         <url-pattern>/getCookie</url-pattern>
-    </servlet-mapping>3333333333333333333
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>gs</servlet-name>
         <servlet-class>com.rongke.serv.GenServlet</servlet-class>
@@ -73,6 +70,23 @@
     <servlet-mapping>
         <servlet-name>gs</servlet-name>
         <url-pattern>/GenServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetServletConfig</servlet-name>
+        <servlet-class>com.rongke.servletConfig.GetServletConfig</servlet-class>
+        <init-param>
+            <param-name>jinwh</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+        <init-param>
+            <param-name>123</param-name>
+            <param-value>12345</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetServletConfig</servlet-name>
+        <url-pattern>/GetServletConfig</url-pattern>
     </servlet-mapping>
 
 </web-app>

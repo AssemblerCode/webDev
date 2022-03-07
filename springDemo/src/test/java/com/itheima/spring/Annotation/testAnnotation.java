@@ -1,10 +1,12 @@
 package com.itheima.spring.Annotation;
 
+import com.itheima.spring.config.SpringConfiguration;
 import com.itheima.spring.service.SaveService;
 import com.itheima.spring.service.impl.SaveServiceImpl;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import lombok.Data;
 import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
@@ -32,5 +34,11 @@ public class testAnnotation {
             e.printStackTrace();
         }
         ds.close();
+    }
+
+    @Test
+    public void test3(){
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+        ctx.close();
     }
 }

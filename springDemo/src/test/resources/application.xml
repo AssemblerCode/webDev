@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载properties文件-->
+    <context:property-placeholder location="classpath:dbConfig.properties"/>
+
+    <!-- 第二种方式是使用注解的方式注入，主要用在java代码中使用注解注入properties文件中相应的value值 -->
+    <bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations"><!-- 这里是PropertiesFactoryBean类，它也有个locations属性，也是接收一个数组，跟上面一样-->
+            <array>
+                <value>classpath:dbConfig.properties</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="c3p0DataSouce" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driverClass}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+    <context:component-scan base-package="com.itheima"/>
+
+<!--    <import resource="application.xml"/>-->
+
+</beans>

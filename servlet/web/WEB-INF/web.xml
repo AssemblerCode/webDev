@@ -89,4 +89,8 @@
         <url-pattern>/GetServletConfig</url-pattern>
     </servlet-mapping>
 
+    <listener>
+        <listener-class>com.rongke.listener.MyListener</listener-class>
+    </listener>
+    
 </web-app>

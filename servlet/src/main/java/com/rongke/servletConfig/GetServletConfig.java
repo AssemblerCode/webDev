@@ -26,7 +26,7 @@ public class GetServletConfig extends HttpServlet {
         Enumeration<String> paramNames = cfg.getInitParameterNames();
         while(paramNames.hasMoreElements()){
             String name = paramNames.nextElement();
-            cfg.getInitParameter(name)
+            cfg.getInitParameter(name);
         }
     }
 }

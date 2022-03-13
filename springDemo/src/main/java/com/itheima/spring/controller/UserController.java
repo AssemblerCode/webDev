@@ -3,13 +3,14 @@ package com.itheima.spring.controller;
 import com.itheima.spring.entity.request.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class UserController {
 
     @GetMapping("/getParamsToPojo")
     public void getParamToPojo(User u) {
-
+        System.out.println(u.getName());
     }
 
     @GetMapping("/getParamsToArray")
@@ -71,7 +72,24 @@ public class UserController {
     }
 
     @GetMapping("/getParamsToList")
-    public void getParamsToList(@RequestParam(value = "list",required = false) List<User> list) {
+    public void getParamsToList(@RequestParam(value = "list", required = false) List<User> list) {
         System.out.println(list);
+    }
+
+    @GetMapping("/getPathVar/{id}/name/{userName}")
+    public void getPathVar( @PathVariable(value = "id", required = true) Integer id, @PathVariable(value = "userName", required = true) String userName,
+                           @RequestHeader("User-Agent") String userAgent) {
+    }
+
+    @GetMapping("/getMult")
+    public  void getMult(MultipartFile mf){}
+
+    @GetMapping("getMults")
+    public void getMults(MultipartFile mf[]) throws IOException {
+        File f = new File("web");
+        for (int i = 0; i < mf.length; i++) {
+            MultipartFile m = mf[i];
+            m.transferTo(f);
+        }
     }
 }

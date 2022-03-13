@@ -20,15 +20,29 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <context-param>
         <param-name>application</param-name>
         <param-value>application.xml</param-value>
     </context-param>
 
-<!--    <listener>-->
-<!--        <listener-class>com.itheima.spring.listen.ContextLoaderListener</listener-class>-->
-<!--    </listener>-->
+    <!--    <listener>-->
+    <!--        <listener-class>com.itheima.spring.listen.ContextLoaderListener</listener-class>-->
+    <!--    </listener>-->
 
     <servlet>
         <servlet-name>user</servlet-name>

@@ -1,0 +1,35 @@
+package com.dccf.spring;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * @Retention 1、RetentionPolicy.SOURCE：注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
+ * 2、RetentionPolicy.CLASS：注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
+ * 3、RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在； @Target @Target注解用于指定注解可以应用的程序元素类型，它有一个ElementType枚举类型的参数，可以取值为：
+ *
+ * <p>ElementType.TYPE：可以用于类、接口和枚举类型。
+ *
+ * <p>ElementType.FIELD：可以用于字段（包括枚举常量）。
+ *
+ * <p>ElementType.METHOD：可以用于方法。
+ *
+ * <p>ElementType.PARAMETER：可以用于方法的参数。
+ *
+ * <p>ElementType.CONSTRUCTOR：可以用于构造函数。
+ *
+ * <p>ElementType.LOCAL_VARIABLE：可以用于局部变量。
+ *
+ * <p>ElementType.ANNOTATION_TYPE：可以用于注解类型。
+ *
+ * <p>ElementType.PACKAGE：可以用于包。
+ *
+ * <p>ElementType.TYPE_PARAMETER：可以用于类型参数声明（Java 8新增）。
+ *
+ * <p>ElementType.TYPE_USE：可以用于使用类型的任何语句中（Java 8新增）。
+ */
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD})
+public @interface Transaction {}

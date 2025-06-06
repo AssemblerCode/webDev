@@ -12,4 +12,3 @@ public class IndexController {
     }
 
 }
-写一个如下页面

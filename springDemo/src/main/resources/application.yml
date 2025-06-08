@@ -1,8 +1,21 @@
 server:
   port: 80
-  
+
+#spring:
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
+#MySQL数据源
 spring:
-  security:
-    user:
-      name: admin
-      password: password
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security_demo
+    username: root
+    password: jin1997c#
+
+#SQL日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
